@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Đồng Nguyễn Khánh Duy — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500&family=Cabinet+Grotesk:wght@400;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--bg:#020617;--bg2:#0f172a;--surf:#1e293b;--brd:#334155;--c1:#38bdf8;--c2:#60a5fa;--c3:#818cf8;--c4:#93c5fd;--txt:#94a3b8;--txt2:#cbd5e1;--head:#f8fafc;--mono:'DM Mono',monospace;--sans:'Cabinet Grotesk',sans-serif;--serif:'Instrument Serif',serif}
+body{background:var(--bg);color:var(--txt);font-family:var(--mono);font-size:.875rem;line-height:1.75;overflow-x:hidden;cursor:none}
+a{color:var(--c1);text-decoration:none;transition:color .2s}a:hover{color:#fff}
+::selection{background:var(--c1);color:#000}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--c1)}
+#cd,#cr{pointer-events:none;position:fixed;top:0;left:0;border-radius:50%;z-index:99999;opacity:0;transition:opacity .3s;will-change:transform}
+#cd{width:6px;height:6px;background:var(--c1);box-shadow:0 0 12px var(--c1)}
+#cr{width:44px;height:44px;border:1.5px solid rgba(56,189,248,.5);transition:width .15s,height .15s,border-color .15s,opacity .3s,background .15s}
+#cr.big{width:60px;height:60px;border-color:var(--c1);background:rgba(56,189,248,.04)}
+#nav{position:fixed;inset:0 0 auto;z-index:900;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(2,6,23,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);transition:transform .4s}
+#nav.up{transform:translateY(-100%)}
+.nlogo{font-family:var(--sans);font-size:1.1rem;font-weight:900;color:var(--c1);cursor:none;letter-spacing:1px}.nlogo em{font-style:normal;color:var(--txt)}
+.nlinks{display:flex;gap:1.8rem;list-style:none}
+.nlinks a{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt);position:relative;cursor:none}
+.nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--c1);transition:width .25s}
+.nlinks a:hover{color:var(--head)}.nlinks a:hover::after{width:100%}
+.nback{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt);border:1px solid var(--brd);padding:.38rem .9rem;border-radius:4px;transition:all .2s;cursor:none}
+.nback:hover{color:var(--c1);border-color:rgba(56,189,248,.4)}
+.nbtn{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;color:#000;background:var(--c1);border:none;padding:.42rem 1rem;border-radius:4px;cursor:none;transition:all .2s}
+.nbtn:hover{background:#fff;box-shadow:0 0 18px rgba(56,189,248,.4)}
+.page{display:none;min-height:100vh}.page.active{display:block;animation:pgIn .4s ease both}
+@keyframes pgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+#hero{position:relative;height:100svh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#agC{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hgrid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(56,189,248,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.03) 1px,transparent 1px);background-size:72px 72px}
+.hglow{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(56,189,248,.05) 0%,transparent 70%),radial-gradient(ellipse 35% 40% at 20% 30%,rgba(96,165,250,.07) 0%,transparent 60%),radial-gradient(ellipse 30% 35% at 80% 70%,rgba(129,140,248,.06) 0%,transparent 60%)}
+.hb{position:relative;z-index:10;text-align:center;padding:0 1.5rem}
+.hsup{font-family:var(--mono);font-size:.68rem;color:var(--c1);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.4rem;display:flex;align-items:center;justify-content:center;gap:.8rem;opacity:0;animation:up .7s .1s both}
+.hsup::before,.hsup::after{content:'';width:36px;height:1px;background:var(--c1);opacity:.4}
+.hname{font-family:var(--sans);font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;color:var(--head);line-height:.95;letter-spacing:-.03em;margin-bottom:.6rem;opacity:0;animation:up .7s .25s both}
+.hname mark{background:none;color:transparent;-webkit-text-stroke:1.5px var(--c1)}
+.hrole{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.5vw,1.35rem);color:var(--txt);margin-bottom:2.4rem;opacity:0;animation:up .7s .4s both;min-height:2rem}.hrole span{color:var(--txt2)}
+.blink{animation:blink .65s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hcta{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:up .7s .55s both}
+.sarr{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeIn 1s 1.2s both}
+.sarr span{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txt)}
+.sarr i{font-size:.8rem;color:var(--c1);animation:bounce 1.6s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+#ticker{background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:2.5rem 0;overflow:hidden;position:relative}
+#ticker::before,#ticker::after{content:'';position:absolute;top:0;bottom:0;width:180px;z-index:2;pointer-events:none}
+#ticker::before{left:0;background:linear-gradient(to right,var(--bg2),transparent)}
+#ticker::after{right:0;background:linear-gradient(to left,var(--bg2),transparent)}
+.tick-outer{display:flex}
+.tick-track{display:flex;gap:1.4rem;flex-shrink:0;animation:tickScroll 42s linear infinite}
+.tick-track:nth-child(2){animation-delay:-21s}
+@keyframes tickScroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.tick-item{display:flex;flex-direction:column;align-items:center;gap:.55rem;flex-shrink:0;transform:translateY(var(--ty,0px)) scale(var(--sc,1))}
+.tick-circle{width:72px;height:72px;border-radius:50%;background:var(--surf);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--txt);transition:border-color .3s,color .3s,box-shadow .3s,transform .3s;position:relative;overflow:hidden}
+.tick-circle::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 38% 38%,rgba(56,189,248,.14),transparent 55%);opacity:0;transition:opacity .3s}
+.tick-item:hover .tick-circle{border-color:rgba(56,189,248,.55);color:var(--c1);box-shadow:0 0 24px rgba(56,189,248,.18);transform:scale(1.08)}
+.tick-item:hover .tick-circle::after{opacity:1}
+.tick-label{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt);opacity:.55;transition:opacity .3s}
+.tick-item:hover .tick-label{opacity:1;color:var(--txt2)}
+#about-s{padding:6rem 0;background:var(--bg2)}
+.abg{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:center}
+.about-avatar{width:100%;max-width:320px;border-radius:12px;border:2px solid var(--brd);box-shadow:0 20px 50px rgba(56,189,248,.05);transition:transform .4s;object-fit:cover}
+.about-avatar:hover{transform:scale(1.02);border-color:var(--c1);box-shadow:0 20px 50px rgba(56,189,248,.15)}
+.abt p{margin-bottom:1rem;line-height:1.85;font-size:.85rem}.abt p b{color:var(--head)}.abt p em{color:var(--c1);font-style:normal}
+.abl{list-style:none;margin-top:1.8rem;border-top:1px solid var(--brd)}.abl li{display:flex;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--brd);font-size:.8rem}
+.abl .k{color:var(--txt);min-width:110px;font-size:.68rem;letter-spacing:.06em}.abl .v{color:var(--head)}.abl .v a{color:var(--c1)}.abl .v a:hover{color:#fff}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.sc{background:var(--surf);border:1px solid var(--brd);border-radius:8px;padding:1.4rem;text-align:center;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.sc:hover{border-color:rgba(56,189,248,.4);transform:translateY(-3px)}
+.sc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,.12),transparent 55%);opacity:0;transition:opacity .25s}.sc:hover::before{opacity:1}
+.snum{font-family:var(--sans);font-size:2.3rem;font-weight:900;color:var(--c1);line-height:1;margin-bottom:.3rem}.slbl{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt)}
+#exp-s{padding:6rem 0;background:var(--bg)}
+.tl{position:relative;padding-left:2.5rem}.tl::before{content:'';position:absolute;left:.5px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--c1),var(--brd) 60%,transparent)}
+.ti{position:relative;padding-bottom:3.5rem}.ti::before{content:'';position:absolute;left:-2.5rem;top:8px;width:10px;height:10px;border-radius:50%;background:var(--c1);box-shadow:0 0 14px rgba(56,189,248,.6);transform:translateX(calc(-50% + 1px))}
+.tdate{font-size:.7rem;color:var(--c1);letter-spacing:.1em;margin-bottom:.35rem}.trole{font-family:var(--sans);font-size:1.1rem;font-weight:800;color:var(--head);margin-bottom:.15rem;letter-spacing:-.01em}
+.tco{font-size:.78rem;color:var(--txt);margin-bottom:.9rem}.tlist{list-style:none}.tlist li{position:relative;padding-left:1.1rem;margin-bottom:.45rem;font-size:.81rem;line-height:1.7}.tlist li::before{content:'▸';position:absolute;left:0;color:var(--c1);font-size:.63rem;top:4px}
+#edu-s{padding:6rem 0;background:var(--bg2)}
+.ecard{background:var(--surf);border:1px solid var(--brd);border-radius:8px;padding:2rem;display:grid;grid-template-columns:56px 1fr;gap:1.4rem;align-items:start;max-width:660px;transition:border-color .25s;margin-bottom:2.5rem}.ecard:hover{border-color:rgba(56,189,248,.3)}
+.eico{width:56px;height:56px;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--c1);font-size:22px}
+.edeg{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--head);margin-bottom:.2rem}.esch{color:var(--c1);font-size:.73rem;margin-bottom:.3rem}.eyr{color:var(--txt);font-size:.7rem;margin-bottom:.7rem}.ecrs{font-size:.8rem;line-height:1.75}.ecrs em{color:var(--c1);font-style:normal}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.cert{display:flex;gap:.8rem;align-items:flex-start;background:var(--surf);border:1px solid var(--brd);border-radius:8px;padding:1rem 1.2rem;transition:border-color .2s}.cert:hover{border-color:rgba(56,189,248,.25)}.cert i{color:var(--c1);font-size:15px;margin-top:2px;flex-shrink:0}.cert span{font-size:.8rem;line-height:1.6}
+#projects-s{padding:6rem 0;background:var(--bg)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem}
+.pc{background:var(--surf);border:1px solid var(--brd);border-radius:10px;padding:1.8rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s}
+.pc:hover{border-color:rgba(56,189,248,.3);transform:translateY(-5px);box-shadow:0 20px 60px rgba(56,189,248,.06)}
+.pc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));transform:scaleX(0);transform-origin:left;transition:transform .35s}.pc:hover::after{transform:scaleX(1)}
+.pc.feat{border-color:rgba(56,189,248,.22)}.feat-badge{position:absolute;top:1.2rem;right:1.2rem;font-size:.58rem;letter-spacing:.1em;color:var(--c1);background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);padding:.12rem .45rem;border-radius:3px}
+.pt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.pico{width:44px;height:44px;border-radius:8px;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.14);display:flex;align-items:center;justify-content:center;color:var(--c1);font-size:18px}
+.plnk{width:30px;height:30px;background:rgba(255,255,255,.04);border:1px solid var(--brd);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--txt);font-size:12px;transition:all .2s}.plnk:hover{color:var(--c1);border-color:rgba(56,189,248,.4)}
+.pname{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--head);margin-bottom:.25rem;letter-spacing:-.01em}
+.pmeta{display:flex;gap:.8rem;align-items:center;margin-bottom:.7rem;flex-wrap:wrap}
+.pdate{font-size:.62rem;color:var(--txt);letter-spacing:.04em}
+.pdesc{font-size:.81rem;color:var(--txt);line-height:1.78;flex:1;margin-bottom:1rem}
+.phigh{list-style:none;margin-bottom:1rem}.phigh li{position:relative;padding-left:1rem;font-size:.78rem;color:var(--txt2);line-height:1.7;margin-bottom:.3rem}.phigh li::before{content:'▸';position:absolute;left:0;color:var(--c1);font-size:.6rem;top:4px}
+.ptags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto}
+.ptag{font-size:.62rem;padding:.15rem .48rem;border-radius:3px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.18);color:#60a5fa}
+.ptag.hi{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.22);color:var(--c1)}.ptag.lg{background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.2);color:#818cf8}
+#contact-s{padding:6rem 0;background:var(--bg2)}
+.ctg{display:grid;grid-template-columns:1fr 1fr;gap:4rem}.cti p{line-height:1.85;margin-bottom:1.8rem;font-size:.84rem}
+.ctl{list-style:none}.ctl li{display:flex;align-items:center;gap:.9rem;padding:.8rem 0;border-bottom:1px solid var(--brd)}.ctl li:last-child{border:none}
+.ctlico{width:38px;height:38px;flex-shrink:0;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.15);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--c1);font-size:14px}
+.ctllbl{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt);display:block;margin-bottom:.1rem}.ctlval{font-size:.83rem;color:var(--head)}.ctlval a{color:var(--txt2)}.ctlval a:hover{color:var(--c1)}
+.cform{display:flex;flex-direction:column;gap:.9rem}.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.ff{display:flex;flex-direction:column;gap:.35rem}.ff label{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt)}
+.ff input,.ff textarea{background:var(--surf);border:1px solid var(--brd);border-radius:5px;color:var(--head);font-family:var(--mono);font-size:.81rem;padding:.65rem .9rem;outline:none;resize:none;transition:border-color .2s;cursor:none}
+.ff input:focus,.ff textarea:focus{border-color:rgba(56,189,248,.4)}.ff textarea{height:120px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.65rem 1.5rem;border-radius:5px;font-family:var(--mono);font-size:.72rem;letter-spacing:.07em;cursor:none;transition:all .22s}
+.btnp{background:var(--c1);color:#000;border:none}.btnp:hover{background:#fff;box-shadow:0 0 28px rgba(56,189,248,.5);color:#000}
+.btno{background:transparent;color:var(--c1);border:1px solid rgba(56,189,248,.35)}.btno:hover{border-color:var(--c1);background:rgba(56,189,248,.06)}
+.stag{font-family:var(--mono);font-size:.65rem;color:var(--c1);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.7rem;display:flex;align-items:center;gap:.7rem}
+.stag::after{content:'';flex:1;height:1px;background:var(--brd)}
+.stitle{font-family:var(--sans);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:900;color:var(--head);letter-spacing:-.02em;margin-bottom:.8rem;line-height:1.05}
+.ssub{color:var(--txt);max-width:540px;margin-bottom:3rem;font-size:.85rem}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s}.rv.on{opacity:1;transform:none}
+footer{background:var(--bg);border-top:1px solid var(--brd);padding:2.5rem;text-align:center}
+.ftc{font-size:.7rem;color:var(--txt);margin-bottom:1rem;letter-spacing:.05em}
+.fts{display:flex;gap:.8rem;justify-content:center}
+.fta{width:36px;height:36px;border-radius:4px;background:var(--surf);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;color:var(--txt);font-size:14px;transition:all .2s}.fta:hover{color:var(--c1);border-color:rgba(56,189,248,.35)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(max-width:768px){#nav{padding:0 1rem}.nlinks{display:none}.abg,.ctg{grid-template-columns:1fr;gap:2rem}.frow{grid-template-columns:1fr}body{cursor:auto}#cd,#cr{display:none}}
+</style>
+</head>
+<body>
+<div id="cd"></div><div id="cr"></div>
+<nav id="nav">
+  <div class="nlogo" onclick="scrollToId('hero')">KD<em>.</em></div>
+  <ul class="nlinks" id="navHome">
+    <li><a href="javascript:void(0)" onclick="scrollToId('about-s')">About</a></li>
+    <li><a href="javascript:void(0)" onclick="scrollToId('exp-s')">Experience</a></li>
+    <li><a href="javascript:void(0)" onclick="scrollToId('edu-s')">Edu & Skills</a></li>
+    <li><a href="javascript:void(0)" onclick="scrollToId('projects-s')">Projects</a></li>
+    <li><a href="javascript:void(0)" onclick="scrollToId('contact-s')">Contact</a></li>
+  </ul>
+  <a href="https://github.com/Funny-Zega" target="_blank" class="nbtn"><i class="fab fa-github" style="margin-right:.35rem"></i>GitHub</a>
+</nav>
+
+<!-- PAGE HOME -->
+<div class="page active" id="page-home">
+<section id="hero">
+  <div class="hgrid"></div><div class="hglow"></div><canvas id="agC"></canvas>
+  <div class="hb">
+    <div class="hsup">Embedded Systems & Firmware Engineer</div>
+    <h1 class="hname">ĐỒNG NGUYỄN <mark>KHÁNH DUY</mark></h1>
+    <div class="hrole"><span id="typed"></span><span class="blink">_</span></div>
+    <div class="hcta">
+      <a href="javascript:void(0)" onclick="scrollToId('about-s')" class="btn btnp"><i class="fa fa-compass"></i> Discover</a>
+      <a href="javascript:void(0)" onclick="scrollToId('contact-s')" class="btn btno"><i class="fa fa-envelope"></i> Contact Me</a>
+    </div>
+  </div>
+  <div class="sarr"><span>Scroll</span><i class="fa fa-chevron-down"></i></div>
+</section>
+
+<!-- Ticker banner -->
+<div id="ticker"><div class="tick-outer"><div class="tick-track" id="t1"></div><div class="tick-track" id="t2"></div></div></div>
+
+<section id="about-s"><div class="wrap">
+  <div class="stag">01 — About me</div><h2 class="stitle">Bridge between<br>Hardware &amp; Software</h2>
+  <div class="abg rv">
+    <div class="abt">
+      <p>I am an <em>Embedded Systems student</em> at <b>HCM City University of Technology (Bach Khoa)</b>, graduating in 2027. My expertise lies in <em>hardware-software co-design</em>, <em>low-level firmware</em>, and <em>Digital Signal Processing (DSP)</em>.</p>
+      <p>I am an active researcher in Drone RF detection and FPGA hardware acceleration (SHA3-256). Currently, I am seeking an <b>Embedded Systems Internship</b> to leverage my C/C++ and system architecture expertise to build secure, intelligent embedded solutions.</p>
+      <ul class="abl">
+        <li><span class="k">Location</span><span class="v">Ho Chi Minh City, Việt Nam</span></li>
+        <li><span class="k">University</span><span class="v">HCMUT — Bach Khoa, exp. 2027</span></li>
+        <li><span class="k">Email</span><span class="v"><a href="mailto:dnkd04012005@gmail.com">dnkd04012005@gmail.com</a></span></li>
+        <li><span class="k">Phone</span><span class="v">0973 749 278</span></li>
+      </ul>
+      <div class="stats">
+        <div class="sc"><div class="snum">3.0</div><div class="slbl">Current GPA</div></div>
+        <div class="sc"><div class="snum">6.5</div><div class="slbl">IELTS Score</div></div>
+      </div>
+    </div>
+    <div class="ab-right">
+      <img src="images/pic08.jpg" alt="Đồng Nguyễn Khánh Duy" class="about-avatar"/>
+    </div>
+  </div>
+</div></section>
+
+<section id="exp-s"><div class="wrap">
+  <div class="stag rv">02 — Experience</div><h2 class="stitle rv">Research &amp; Work History</h2>
+  <div class="tl rv">
+    <div class="ti"><div class="tdate">Jan 2026 — Present</div><div class="trole">AI-Driven Drone RF Detection and Classification</div><div class="tco">Researcher · Ho Chi Minh City</div>
+      <ul class="tlist"><li>Built a counter-UAV detection system using RF signal processing (STFT) and an EfficientNet-B0 + CBAM architecture.</li><li>Achieved <b style="color:var(--c1)">99.89% accuracy</b> in clean data evaluation.</li><li>Focusing on model quantization for low-latency edge inference while preparing findings for a scientific paper.</li></ul></div>
+    <div class="ti"><div class="tdate">Aug 2025 — Present</div><div class="trole">Hardware Implementation of SHA3-256 on FPGA</div><div class="tco">Researcher · Ho Chi Minh City</div>
+      <ul class="tlist"><li>Developed an area-efficient SHA-3-256 IP Core on the Arty Z7 FPGA (Verilog/SystemVerilog).</li><li>Implemented system-on-chip integration with UART communication.</li><li>Currently finalizing a comparative research paper on area and throughput optimization for scientific publication.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="edu-s"><div class="wrap">
+  <div class="stag rv">03 — Education &amp; Skills</div><h2 class="stitle rv">Academic Background</h2>
+  <div class="rv">
+    <div class="ecard"><div class="eico"><i class="fa fa-graduation-cap"></i></div><div><div class="edeg">Undergraduate — Computer Engineering</div><div class="esch">Ho Chi Minh City University of Technology (HCMUT)</div><div class="eyr">2023 — Expected 2027</div><div class="ecrs">Relevant Coursework: <em>Microcontroller and Microprocessor</em> (4.0/4.0), <em>Electrical and Electronics Circuit</em> (4.0/4.0), <em>Operating System</em> (3.5/4.0), <em>DSP</em>.</div></div></div>
+    <div class="cgrid">
+      <div class="cert"><i class="fa fa-award"></i><span>OISP ScholarShip Top 20 Best in Year 1 and 2</span></div>
+      <div class="cert"><i class="fa fa-language"></i><span>IELTS Certificate 6.5</span></div>
+      <div class="cert"><i class="fa fa-file-excel"></i><span>MOS-EXCEL Certification</span></div>
+      <div class="cert"><i class="fa fa-tools"></i><span>Firmware: C/C++, STM32CubeIDE, PlatformIO</span></div>
+      <div class="cert"><i class="fa fa-microchip"></i><span>Hardware/FPGA: Verilog, SystemVerilog, Vivado</span></div>
+      <div class="cert"><i class="fa fa-network-wired"></i><span>Protocols: UART, SPI, I2C, CAN</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects-s"><div class="wrap">
+  <div class="stag rv">04 — Projects</div><h2 class="stitle rv">Featured Implementations</h2>
+  <div class="pgrid rv">
+    <div class="pc feat"><span class="feat-badge">★ Hardware Integration</span><div class="pt"><div class="pico"><i class="fa fa-traffic-light"></i></div><a href="https://github.com/Funny-Zega" target="_blank" class="plnk"><i class="fab fa-github"></i></a></div><div class="pname">FSM-Based Smart Traffic Light</div><div class="pmeta"><span class="pdate">Nov 2026</span></div><p class="pdesc">Developed a multi-mode traffic light system on STM32 utilizing Finite State Machines to manage state transitions and parameters.</p><ul class="phigh"><li>Hardware timer interrupts (TIM2) for precise timekeeping.</li><li>Multiplexed 7-segment displays and robust software debouncing.</li></ul><div class="ptags"><span class="ptag hi">STM32 C HAL</span><span class="ptag">FSM</span><span class="ptag">Timer Interrupts</span></div></div>
+    
+    <div class="pc feat"><span class="feat-badge">★ Firmware Comms</span><div class="pt"><div class="pico"><i class="fa fa-exchange-alt"></i></div><a href="https://github.com/Funny-Zega" target="_blank" class="plnk"><i class="fab fa-github"></i></a></div><div class="pname">Interrupt-Driven UART Protocol</div><div class="pmeta"><span class="pdate">Nov 2025</span></div><p class="pdesc">Engineered a UART-based data acquisition system on STM32 with an interrupt-driven receiver, ring buffer, and FSM parser.</p><ul class="phigh"><li>Reliable ARQ transmission mechanism (ACKs, timeouts).</li><li>Real-time ADC hardware polling integration.</li></ul><div class="ptags"><span class="ptag hi">STM32 C HAL</span><span class="ptag">UART</span><span class="ptag lg">FSM</span></div></div>
+  </div>
+</div></section>
+
+<section id="contact-s"><div class="wrap">
+  <div class="stag rv">05 — Contact</div><h2 class="stitle rv">Let's Build Something</h2>
+  <div class="ctg rv">
+    <div class="cti">
+      <p>I am currently seeking an <b style="color:var(--c1)">Embedded Systems Internship</b>. Please feel free to reach out if you're building intelligent hardware solutions!</p>
+      <ul class="ctl">
+        <li><div class="ctlico"><i class="fa fa-envelope"></i></div><div><span class="ctllbl">Email</span><div class="ctlval"><a href="mailto:dnkd04012005@gmail.com">dnkd04012005@gmail.com</a></div></div></li>
+        <li><div class="ctlico"><i class="fa fa-phone"></i></div><div><span class="ctllbl">Phone</span><div class="ctlval">0973 749 278</div></div></li>
+        <li><div class="ctlico"><i class="fab fa-linkedin-in"></i></div><div><span class="ctllbl">LinkedIn</span><div class="ctlval"><a href="https://www.linkedin.com/in/duy-%C4%91%E1%BB%93ng-nguy%E1%BB%85n-kh%C3%A1nh-6a2657366/" target="_blank">in/duy-đồng-nguyễn</a></div></div></li>
+        <li><div class="ctlico"><i class="fab fa-github"></i></div><div><span class="ctllbl">GitHub</span><div class="ctlval"><a href="https://github.com/Funny-Zega" target="_blank">Funny-Zega</a></div></div></li>
+        <li><div class="ctlico"><i class="fab fa-facebook-f"></i></div><div><span class="ctllbl">Facebook</span><div class="ctlval"><a href="https://www.facebook.com/ongnguyenkhanhduy/" target="_blank">ongnguyenkhanhduy</a></div></div></li>
+      </ul>
+    </div>
+    <div class="cform">
+      <!-- Contact message graphic / placeholder for form -->
+       <div class="sc" style="text-align:left; padding:2rem; height:100%;">
+          <div style="font-size:3rem; color:var(--c1); margin-bottom:1rem;"><i class="fa fa-code-branch"></i></div>
+          <h3 style="font-family:var(--sans); font-size:1.5rem; color:var(--head); margin-bottom:1rem;">Ready to innovate</h3>
+          <p style="color:var(--txt2); font-size:.9rem; line-height:1.7;">Communication is the bridge between a great idea and a successful system integration. I am always open to discussing new technologies, hardware-software paradigms, and professional opportunities.</p>
+       </div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="ftc">Đồng Nguyễn Khánh Duy © 2026</div><div class="fts"><a href="https://github.com/Funny-Zega" target="_blank" class="fta"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/duy-%C4%91%E1%BB%93ng-nguy%E1%BB%85n-kh%C3%A1nh-6a2657366/" target="_blank" class="fta"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/ongnguyenkhanhduy/" class="fta"><i class="fab fa-facebook-f"></i></a><a href="mailto:dnkd04012005@gmail.com" class="fta"><i class="fa fa-envelope"></i></a></div></footer>
+</div>
+
+<script>
+const PAGES=['home'];
+let cur='home',agcOk=false,tickOk=false;
+function scrollToId(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+
+// cursor
+(()=>{
+  const d=document.getElementById('cd'),r=document.getElementById('cr');
+  if(!d)return;let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;d.style.opacity='1';r.style.opacity='1';d.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`});
+  document.addEventListener('mouseleave',()=>{d.style.opacity='0';r.style.opacity='0'});
+  function hookHover(){document.querySelectorAll('a,button,.pcard,.sc,.cert,.tick-item,.tcard,.pc,.nbtn,.ftab').forEach(el=>{el.addEventListener('mouseenter',()=>r.classList.add('big'));el.addEventListener('mouseleave',()=>r.classList.remove('big'))})}
+  hookHover();setInterval(hookHover,2500);
+  (function lp(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;r.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(lp)})();
+})();
+
+// reveal
+function initReveal(){
+  const ob=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ob.unobserve(e.target)}})},{threshold:.08});
+  document.querySelectorAll('.rv:not(.on)').forEach(el=>ob.observe(el));
+}
+setTimeout(initReveal, 100);
+
+// nav hide
+(()=>{const nav=document.getElementById('nav');let last=0;window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('up',y>last&&y>80);last=y},{passive:true})})();
+
+// AGC - Gentle animations
+function initAGC(){
+  const cv=document.getElementById('agC'),hero=document.getElementById('hero'),ctx=cv.getContext('2d');
+  const CL=['#38bdf8','#60a5fa','#818cf8']; // Blue tones
+  const N=120,REP=100,RF=.2,SP=.025,DMP=.88; // Reduced particles, slower speed, gentler dampening
+  let W,H,ms={x:-9999,y:-9999,in:false};
+  const pts=[];
+  function rsz(){W=cv.width=hero.offsetWidth;H=cv.height=hero.offsetHeight;pts.forEach(p=>{p.hx=Math.random()*W;p.hy=Math.random()*H;if(!p.ok){p.x=p.hx;p.y=p.hy;p.ok=true}})}
+  for(let i=0;i<N;i++)pts.push({x:0,y:0,hx:0,hy:0,vx:0,vy:0,r:1.4+Math.random()*2.0,c:CL[~~(Math.random()*CL.length)],a:.25+Math.random()*.4,ok:false,dA:Math.random()*Math.PI*2,dS:.0001+Math.random()*.0003,dR:3+Math.random()*6});
+  rsz();window.addEventListener('resize',rsz);
+  document.addEventListener('mousemove',e=>{if(cur!=='home')return;const rc=hero.getBoundingClientRect();ms.x=e.clientX-rc.left;ms.y=e.clientY-rc.top;ms.in=(ms.x>=0&&ms.x<=W&&ms.y>=0&&ms.y<=H)},{passive:true});
+  document.addEventListener('mouseleave',()=>{ms.in=false});
+  hero.addEventListener('touchmove',e=>{const rc=hero.getBoundingClientRect();ms.x=e.touches[0].clientX-rc.left;ms.y=e.touches[0].clientY-rc.top;ms.in=true},{passive:true});
+  hero.addEventListener('touchend',()=>{ms.in=false});
+  (function draw(){
+    if(cur==='home'){
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(p=>{
+        p.dA+=p.dS;const tx=p.hx+Math.cos(p.dA)*p.dR,ty=p.hy+Math.sin(p.dA*1.3)*p.dR;
+        p.vx+=(tx-p.x)*SP;p.vy+=(ty-p.y)*SP;
+        if(ms.in){const dx=p.x-ms.x,dy=p.y-ms.y,d=Math.sqrt(dx*dx+dy*dy)||.001;if(d<REP){const s=1-d/REP;p.vx+=dx/d*s*s*RF*8;p.vy+=dy/d*s*s*RF*8}}
+        p.vx*=DMP;p.vy*=DMP;p.x+=p.vx;p.y+=p.vy;
+        if(p.x<-20)p.x=W+10;if(p.x>W+20)p.x=-10;if(p.y<-20)p.y=H+10;if(p.y>H+20)p.y=-10;
+        const sp=Math.sqrt(p.vx*p.vx+p.vy*p.vy);
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(Math.atan2(p.vy,p.vx));ctx.globalAlpha=p.a;
+        ctx.beginPath();ctx.ellipse(0,0,(p.r*2+Math.min(sp*.4,3))/2,p.r*.85,0,0,Math.PI*2);
+        ctx.fillStyle=p.c;ctx.fill();ctx.restore();
+      });
+    }
+    requestAnimationFrame(draw);
+  })();
+  // typed
+  const el=document.getElementById('typed');
+  const ph=['Specializing in HW/SW Co-Design','Low-Level Firmware & DSP','STM32 / Cortex-M Developer','FPGA & Vivado Hardware Builder'];
+  let pi=0,ci=0,del=false,w=0;
+  function tick(){const p=ph[pi];if(!del){el.textContent=p.slice(0,++ci);if(ci===p.length){del=true;w=55}}else{if(w-->0){setTimeout(tick,28);return}el.textContent=p.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%ph.length}}setTimeout(tick,del?45:80)}
+  setTimeout(tick,900);
+}
+initAGC();
+
+// ticker
+function initTicker(){
+  const its=[{icon:'fa-microchip',label:'STM32'},{icon:'fa-code',label:'C/C++'},{icon:'fa-network-wired',label:'UART/SPI'},{icon:'fa-cogs',label:'FPGA'},{icon:'fa-bolt',label:'Interrupts'},{icon:'fa-project-diagram',label:'FSM'},{icon:'fa-shield-alt',label:'Drone AI'},{icon:'fa-microchip',label:'PlatformIO'},{icon:'fa-satellite-dish',label:'RF Signalling'}];
+  // duplicate array to make it long enough
+  const items = [...its, ...its];
+  function build(el){items.forEach(({icon,label})=>{const d=document.createElement('div');d.className='tick-item';d.innerHTML=`<div class="tick-circle"><i class="fa ${icon}"></i></div><span class="tick-label">${label}</span>`;el.appendChild(d)})}
+  build(document.getElementById('t1'));build(document.getElementById('t2'));
+  (function wave(){const t=Date.now()*.001;document.querySelectorAll('.tick-item').forEach((el,i)=>{const ph=(i%items.length)*.35;const s=Math.sin(t*.6+ph);el.style.setProperty('--ty',(s*10)+'px');el.style.setProperty('--sc',(.93+.07*(s*.5+.5)))});requestAnimationFrame(wave)})();
+}
+initTicker();
+</script>
+</body>
+</html>
