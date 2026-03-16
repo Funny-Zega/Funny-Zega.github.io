@@ -1,0 +1,43 @@
+DONG NGUYEN KHANH DUY
+0973749278⋄Ho Chi Minh, Viet Nam
+dnkd04012005@gmail.com⋄Github⋄Linkedin
+OBJECTIVE
+HCMUT Computer Engineering student specializing in hardware-software co-design, low-level firmware, and DSP.
+Seeking an Embedded Systems Internship to leverage my C/C++ and system architecture expertise to build secure,
+intelligent embedded solutions.
+EDUCATION
+Undergraduate at Ho Chi Minh City University of Technology (HCMUT)2023 - Expected 2027
+GPA Current:3.0/4.0
+Relevant Courses:Microcontroller and Microprocessor (4.0/4.0), Electrical and Electronics Circuit (4.0/4.0), Data
+Signal Processing (In Progress), Operating System (3.5/4.0)
+SKILLS
+Embedded SoftwareC/C++ - STM32CubeIDE; PlatformIO IDE (VS Code)
+FPGA and Hardware DesignVerilog, SystemVerilog - Xilinx Vivado; Vitis Unified IDE
+Communication ProtocolsUART, SPI, I2C, CAN (Basic)
+Soft SkillsTeamwork; Critical Thinking, Office Skill; Technical Reading and Writing
+LanguageEnglish(Ielts 7.0), Vietnamese(Native)
+PROJECTS AND EXPERIENCE
+Interrupt-Driven UART Communication Protocol on STM3211th Nov - 15th Nov 2025
+– Engineered a UART-based data acquisition system on STM32 (C HAL) with an interrupt-driven receiver, ring
+buffer, and FSM command parsing.
+– Implemented a reliable ARQ transmission mechanism (acknowledgments, timeout handling) integrated with real-
+time ADC hardware polling.
+FSM-Based Smart Traffic Light Controller on STM321st Nov - 8th Nov 2026
+– Developed a multi-mode traffic light system on STM32 (C HAL) utilizing Finite State Machines (FSM) to manage
+state transitions and real-time parameter modifications.
+– Implemented hardware timer interrupts (TIM2) for precise timekeeping and multiplexed 7-segment displays, along-
+side robust software-based button debouncing algorithms.
+Hardware Implementation of SHA3-256 on FPGA - ResearchingAugust 2025 - Present
+– Developed an area-efficient SHA-3-256 IP Core on the Arty Z7 FPGA (Verilog/SystemVerilog) with UART com-
+munication. Currently finalizing a comparative research paper on area and throughput optimization for scientific
+publication.
+AI-Driven Drone RF Detection and Classification - ResearchingJanuary 2026 - Present
+– Built a counter-UAV detection system using RF signal processing (STFT) and an EfficientNet-B0 + CBAM archi-
+tecture, achieving 99.89% accuracy in clean data.
+– Focusing on model quantization for low-latency edge inference while preparing findings for a scientific paper.
+EXTRACURRICULAR ACTIVITIES
+•2023: THE FACE OISP - Supported photography and media communications for The Student Ambassador
+Contest organized by the Office for International Study Programs.
+•2023: IELTS CERTIFICATE 6.5 and MOS-EXCEL
+•2024: OISP ScholarShip Top 20 Best in Year 1 and 2 from Bach Khoa University.
+•2025-2026: Researching SHA3-256 and Drone Detection-Classification.
